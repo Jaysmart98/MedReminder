@@ -1,0 +1,15 @@
+#body{
+    width: 100%;
+    height: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#body Input{
+    width: 300px;
+}
+
+#body Button{
+    background-color: black;
+}
