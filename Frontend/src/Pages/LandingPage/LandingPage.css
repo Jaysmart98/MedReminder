@@ -1,4 +1,4 @@
-.landing-page{
+/* .landing-page{
     background-color: blue;
     justify-content: center;
     align-content: center;
@@ -40,8 +40,6 @@
     0% {transform: translateY(0%); background-color: tomato}
     25%{transform: translateY(25%); background-color: #a0604f;}
     50%{transform: translateY(0%); background-color: #313131;}
-    /* 75%{transform: translateY(-25%); background-color: #00AEEE;} */
-    /* 100%{transform: translateY(0%); background-color: tomato;} */
 }
 
 #loGo{
@@ -50,7 +48,6 @@
 
 @keyframes rotate {
     0% { transform: rotate(0deg); }
-    /* 50% { transform: rotate(180deg); } */
     100% { transform: rotate(360deg);}
 }
 
@@ -90,4 +87,4 @@ p{
     justify-self: center;
     align-self: center;
     margin-top: 20px;
-}
+} */
