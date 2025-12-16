@@ -6,42 +6,38 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand fs-2" href="#">MEDREMINDER</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            {/* <li><hr class="dropdown-divider"></li> */}
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <Link class="btn btn-outline-success" to="/signup">Sign Up</Link>
-      </form>
-    </div>
-  </div>
-</nav>
+    <div id='container'>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+
+            <div class="display-flex flex-direction-">
+                <img className="logo w-25 m-3" src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="MedReminder Logo"/> 
+                <span>MedReminder</span>
+            </div>
+
+            <div id='content'>
+                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active fs-5 text-primary" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active fs-5 text-primary" href="#">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active fs-5 text-primary" aria-disabled="false" href="#">Contact</a>
+                    </li>
+              </ul>
+            </div>
+
+        <div>
+           <form class="d-flex">
+            <Link class="btn btn-outline-primary m-1" to="/signin">Login</Link>
+            <Link class="btn btn-outline-primary m-1" to="/signup">Register</Link>
+           </form>
+        </div>
+
+         </nav>
     </div>
   )
 }
