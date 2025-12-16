@@ -7,7 +7,7 @@ import Input from "../../PrimaryComponents/Input/Input.jsx"
 import Button from "../../PrimaryComponents/Button/Button.jsx"
 import { useNavigate, Router } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { Pill, HeartPulse, Users, Calendar, CheckCircle, Loader2, AlertTriangle } from 'lucide-react';
+import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -43,12 +43,12 @@ const SignUp = () => {
         })
     }
 
-     const coreFeatures = [
-        { icon: Pill, text: "Medication Schedule & Reminders" },
-        { icon: HeartPulse, text: "Health Metrics (BP, Sugar, Weight)" },
-        { icon: Users, text: "Family Member Profiles" },
-        { icon: Calendar, text: "Doctor Appointment Reminders" },
-    ];
+    const coreFeatures = [
+    { icon: Pill, text: "Medication Schedule & Reminders" },
+    { icon: HeartPulse, text: "Health Metrics (BP, Sugar, Weight)" },
+    { icon: Users, text: "Family Member Profiles" },
+    { icon: Calendar, text: "Doctor Appointment Reminders" },
+];
 
   return (
     <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter">
@@ -56,36 +56,31 @@ const SignUp = () => {
      <div className="absolute top-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-white opacity-10 z-0"></div>
       <div className="absolute bottom-[-50px] right-[-100px] w-[250px] h-[250px] rounded-full bg-white opacity-15 z-0"></div>
      
-      <div id='container' className="z-10 p-4 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
+      <div id='container' className="z-10 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
          <img id='loGo' className='img-fluid' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
-         <div className="flex justify-center items-center mb-4"><Pill className="w-12 h-12 text-white animate-pulse"/></div>
           <h2 className='welcome-text'>Your Personal Health Manager</h2>
          <h1 className='Med text-center fs-2 bold'>MedTrack</h1>
          <p>Manage medication Schedules, track vital health metrics, and never miss a beat on your health journey.</p>
-          
-            <ul className="text-left space-y-3 list-none p-0 inline-block text-base list-icon transition-all duration-300">
-              {coreFeatures.map((item, index) => (
-                        <li key={index} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 mr-3 text-cyan-200 flex-shrink-0 mt-0.5" />
-                            <span className="font-medium text-white text-opacity-95">{item.text}</span>
-                            </li>
-                        ))}
-              </ul>
 
-           <button className='start mt-2 mb-2' onClick={() => navigate('/signup')}> Start Your Free Trial</button>
-         
-          <br/> <br/>
-         
-         <div>
-               <p className='text-center'>Already have an account?   <a href="/signin">Sign In</a> </p>
-             </div>
+            <ul className="text-left mt-4 space-y-3" >
+              {coreFeatures.map((feature, index) => (
+                <li key={index} className="list flex items-center">
+                  <feature.icon className="w-6 h-6 text-white" />
+                  <span className='font-medium text-white text-opacity-95'>{feature.text}</span>
+                </li>
+              ))}
+
+            </ul>
+
+           <button className='start mb-3' onClick={() => navigate('/signup')}> Start Your Free Trial</button>
+      
              <div>
                <p className='text-center'>Forgot your password?   <a href="/reset-password">Reset Password</a> </p>
              </div>
              <div>
                <p className='text-center'>Need help?   <a href="/help">Get Support</a> </p>
              </div>
-        
+
           <footer>
             <p>© 2025 MedReminder. All rights reserved.</p>
           </footer>
@@ -102,7 +97,7 @@ const SignUp = () => {
         <Input name={"password"} placeholder={"Confirm Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Confirm Password'}/> 
       
         <Button loading={loading} text={"Create Account"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Register}/>
-        <p><Link className='d-flex justify-content-center' href="#">Terms of Service</Link> </p>
+        <p><Link className='d-flex justify-content-center' href="/TermsOfServicePage">Terms of Service</Link> </p>
         <p id='createText'>Or create an account using</p>
         <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
       </div>

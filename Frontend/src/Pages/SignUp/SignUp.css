@@ -5,6 +5,27 @@ body, #SignUpPage {
     font-family: 'Inter', sans-serif; 
 }
 
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list{
+    font-size: 1.2rem;
+    width: 88%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid transparent;
+    background-color: rgb(64, 175, 226);
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
 #SignUpPage {
     display: flex;
     min-height: 100vh;
