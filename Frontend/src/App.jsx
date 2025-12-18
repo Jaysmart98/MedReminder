@@ -2,8 +2,8 @@ import { Route , Routes} from 'react-router-dom'
 import SignUp from './Pages/SignUp/SignUp.jsx'
 import SignIn from './Pages/SignIn/SignIn.jsx'
 import Dashboard from './Pages/Dashboard/Dashboard.jsx'
-import LandingPage from '../src/Pages/LandingPage/LandingPage.jsx'
-import TermsOfServicePage from './Pages/TermsAndServices/TS.jsx'
+import LandingPage from './Pages/LandingPage/LandingPage.jsx'
+import TermsOfService from './Pages/TermsAndServices/TermsOfService.jsx'
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
          <Route path='/signup' element={<SignUp/>}/>
         <Route path="/signin" element={<SignIn/>} />
         <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/terms-of-service" element={<TermsOfServicePage/>}/>
+        <Route path="/termsofservice" element={<TermsOfService/>}/>
       </Routes>
     </>
   )

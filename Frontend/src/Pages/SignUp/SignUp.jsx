@@ -73,10 +73,6 @@ const SignUp = () => {
             </ul>
 
            <button className='start mb-3' onClick={() => navigate('/signup')}> Start Your Free Trial</button>
-      
-             <div>
-               <p className='text-center'>Forgot your password?   <a href="/reset-password">Reset Password</a> </p>
-             </div>
              <div>
                <p className='text-center'>Need help?   <a href="/help">Get Support</a> </p>
              </div>
@@ -97,12 +93,11 @@ const SignUp = () => {
         <Input name={"password"} placeholder={"Confirm Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Confirm Password'}/> 
       
         <Button loading={loading} text={"Create Account"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Register}/>
-        <p><Link className='d-flex justify-content-center' href="/TermsOfServicePage">Terms of Service</Link> </p>
+        <p><Link className='d-flex justify-content-center' href="/termsofservice">Terms of Service</Link> </p>
         <p id='createText'>Or create an account using</p>
         <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
       </div>
     </div>
-    
     </div>
   )
 }

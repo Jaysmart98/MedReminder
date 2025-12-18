@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Input from "../../PrimaryComponents/Input/Input.jsx"
 import Button from "../../PrimaryComponents/Button/Button.jsx"
+import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 
 
 
@@ -43,21 +44,66 @@ const SignIn = () => {
       })
   };
 
-
+       const coreFeatures = [
+    { icon: Pill, text: "Medication Schedule & Reminders" },
+    { icon: HeartPulse, text: "Health Metrics (BP, Sugar, Weight)" },
+    { icon: Users, text: "Family Member Profiles" },
+    { icon: Calendar, text: "Doctor Appointment Reminders" },
+];
 
   return (
-    <div id='body'>
-      <div className='w-5 mx-auto py-3 px-3'>
-        <h1 className='text-center mt-3'>Login</h1>
-        <p className='text-center mt-3'>Don't have an account? <a href="https://pe-frontend-chi.vercel.app/signup">Sign Up</a> </p>
-        <Input name={"email"} placeholder={"Enter your Email"} type={"email"} style={"form-control mt-3"} onChange={handleInputChange} />
-        <Input name={"password"} placeholder={"Enter your Password"} type={"password"} style={"form-control mt-3"} onChange={handleInputChange} label={"Password"} />
-        <Button loading={loading} text={"Login"} style={"btn btn-primary mt-3"} onClick={Login} /> <br />
-        <p><Link href="">Forget Password</Link> </p>
-        <hr />
-        <p id='createText'>Or sign in using:</p>
-        <p style={{ marginTop: '20px' }}> </p>
-        <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-4 mb-2"} />
+    <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter">
+       <div className='landing-page d-flex justify-content-center align-items-center text-white vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center text-white p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-gradient-to-br from-blue-600 to-cyan-500'>
+     <div className="absolute top-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-white opacity-10 z-0"></div>
+      <div className="absolute bottom-[-50px] right-[-100px] w-[250px] h-[250px] rounded-full bg-white opacity-15 z-0"></div>
+     
+      <div id='container' className="z-10 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
+         <img id='loGo' className='img-fluid' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
+          <h2 className='welcome-text'>Your Personal Health Manager</h2>
+         <h1 className='Med text-center fs-2 bold'>MedTrack</h1>
+         <p>Manage medication Schedules, track vital health metrics, and never miss a beat on your health journey.</p>
+
+            <ul className="text-left mt-4 space-y-3" >
+              {coreFeatures.map((feature, index) => (
+                <li key={index} className="list flex items-center">
+                  <feature.icon className="w-6 h-6 text-white" />
+                  <span className='font-medium text-white text-opacity-95'>{feature.text}</span>
+                </li>
+              ))}
+
+            </ul>
+             <div>
+               <p className='text-center'>Need help?   <a href="/help">Get Support</a> </p>
+             </div>
+
+          <footer>
+            <p>© 2025 MedReminder. All rights reserved.</p>
+          </footer>
+      </div>
+      </div>
+
+
+      <div id='body' className='container-fluid w-100'>
+      <div className='body2'>
+          <h1 className='text-center'>Welcome Back!</h1>
+          <p className='text-center'>Sign in to continue to MedTrack</p>
+          <div>
+            <p className='text-center'>Don't have an account? <a href="/signup">Sign Up</a> </p>
+          </div>
+
+            <div>
+              <Input name={"email"} placeholder={"Enter your Email"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} />
+              <Input name={"password"} placeholder={"Enter your Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Password"} />
+              <Button loading={loading} text={"Login"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Login} /> <br />
+               <div>
+               <p className='text-center'>Forgot your password?   <a href="/reset-password">Reset Password</a> </p>
+             </div>
+            </div>
+
+           <p><Link className='d-flex justify-content-center text-decoration-none' href="/termsofservice">Terms of Service</Link> </p>
+           <p id='createText'>Or create an account using</p>
+           <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
+        </div>
       </div>
     </div>
   )
