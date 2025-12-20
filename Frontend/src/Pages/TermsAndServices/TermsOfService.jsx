@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pill, BookOpen, Clock, AlertTriangle } from 'lucide-react';
+import "tailwindcss";
 
 const TermsOfServicePage = () => {
 
@@ -44,7 +45,7 @@ const TermsOfServicePage = () => {
                     {/* Disclaimer Box - High Visibility Warning Theme (Amber) */}
                     <h4 className="text-xl font-semibold text-slate-700 mb-2">2.1. Medical Disclaimer</h4>
                     <div className="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-lg flex items-start space-x-3">
-                        <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                        <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
                         <p className="text-amber-700 font-medium leading-normal">
                             The information provided by MedTrack is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified health provider with any questions you may have regarding a medical condition. Do not disregard professional medical advice or delay in seeking it because of something you have read on this Service.
                         </p>

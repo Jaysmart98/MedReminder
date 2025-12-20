@@ -27,6 +27,16 @@ const Navbar = () => {
                     <li class="nav-item">
                     <a class="nav-link active fs-5 text-primary" aria-disabled="false" href="#">Contact</a>
                     </li>
+                    
+                    <li class="nav-item">
+                    <a class="nav-link active fs-5 text-primary" href="#">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active fs-5 text-primary" href="#">Partners</a>
+                    </li>
+
+
               </ul>
             </div>
 

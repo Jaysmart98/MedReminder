@@ -2,13 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify'
-import './SignIn.css'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Input from "../../PrimaryComponents/Input/Input.jsx"
 import Button from "../../PrimaryComponents/Button/Button.jsx"
 import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
-
+import "tailwindcss";
+import './SignIn.css'
 
 
 
@@ -49,16 +49,19 @@ const SignIn = () => {
     { icon: HeartPulse, text: "Health Metrics (BP, Sugar, Weight)" },
     { icon: Users, text: "Family Member Profiles" },
     { icon: Calendar, text: "Doctor Appointment Reminders" },
+    { icon: CheckCircle, text: "Adherence Reports & Insights" },
 ];
 
   return (
     <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter">
-       <div className='landing-page d-flex justify-content-center align-items-center text-white vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center text-white p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-gradient-to-br from-blue-600 to-cyan-500'>
-     <div className="absolute top-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-white opacity-10 z-0"></div>
-      <div className="absolute bottom-[-50px] right-[-100px] w-[250px] h-[250px] rounded-full bg-white opacity-15 z-0"></div>
+     
+      <div className='landing-page d-flex justify-content-center align-items-center vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center text-white p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-linear-to-br from-blue-600 to-cyan-500'>
+    
+      <div className="absolute -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 z-0"></div>
+      <div className="absolute -bottom-12.5 -right-25 w-62.5 h-62.5 rounded-full bg-white opacity-15 z-0"></div>
      
       <div id='container' className="z-10 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
-         <img id='loGo' className='img-fluid' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
+         <img className='img-fluid mb-3' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
           <h2 className='welcome-text'>Your Personal Health Manager</h2>
          <h1 className='Med text-center fs-2 bold'>MedTrack</h1>
          <p>Manage medication Schedules, track vital health metrics, and never miss a beat on your health journey.</p>
@@ -72,6 +75,7 @@ const SignIn = () => {
               ))}
 
             </ul>
+
              <div>
                <p className='text-center'>Need help?   <a href="/help">Get Support</a> </p>
              </div>
@@ -100,9 +104,9 @@ const SignIn = () => {
              </div>
             </div>
 
-           <p><Link className='d-flex justify-content-center text-decoration-none' href="/termsofservice">Terms of Service</Link> </p>
+           <p className='d-flex justify-content-center'>  <a href="/termsofservice">Terms of Service</a> </p>
            <p id='createText'>Or create an account using</p>
-           <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
+           <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2 "}/>
         </div>
       </div>
     </div>
