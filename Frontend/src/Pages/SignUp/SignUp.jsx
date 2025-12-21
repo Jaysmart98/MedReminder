@@ -8,6 +8,7 @@ import { useNavigate, Router } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 import './SignUp.css'
+import "tailwindcss";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -53,12 +54,14 @@ const SignUp = () => {
 
   return (
     <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter">
+
       <div className='landing-page d-flex justify-content-center align-items-center vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center text-white p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-linear-to-br from-blue-600 to-cyan-500'>
-     <div className="absolute -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 z-0"></div>
+     
+      <div className="absolute -top-25 -left-37.5 w-50 h-50 rounded-full bg-white opacity-10 z-0"></div>
       <div className="absolute -bottom-12.5 -right-25 w-62.5 h-62.5 rounded-full bg-white opacity-15 z-0"></div>
      
       <div id='container' className="z-10 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
-         <img className='img-fluid mb-3 w-25' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
+         <img id='loGo' className='img-fluid' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" />
           <h2 className='welcome-text'>Your Personal Health Manager</h2>
          <h1 className='Med text-center fs-2 bold'>MedTrack</h1>
          <p>Manage medication Schedules, track vital health metrics, and never miss a beat on your health journey.</p>

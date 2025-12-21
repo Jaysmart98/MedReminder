@@ -61,7 +61,7 @@ const SignIn = () => {
       <div className="absolute -bottom-12.5 -right-25 w-62.5 h-62.5 rounded-full bg-white opacity-15 z-0"></div>
      
       <div id='container' className="z-10 sm:p-6 backdrop-blur-sm bg-white/20 rounded-xl max-w-sm w-full transition-all duration-300">
-         <img className='img-fluid mb-3' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
+         <img id='loGo' className='img-fluid mb-3' src="https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760653241/pill_j4t94m.png" alt="" />
           <h2 className='welcome-text'>Your Personal Health Manager</h2>
          <h1 className='Med text-center fs-2 bold'>MedTrack</h1>
          <p>Manage medication Schedules, track vital health metrics, and never miss a beat on your health journey.</p>
@@ -106,7 +106,7 @@ const SignIn = () => {
 
            <p className='d-flex justify-content-center'>  <a href="/termsofservice">Terms of Service</a> </p>
            <p id='createText'>Or create an account using</p>
-           <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2 "}/>
+           <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
         </div>
       </div>
     </div>

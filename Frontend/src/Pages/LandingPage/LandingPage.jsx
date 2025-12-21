@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  Pill, Bell, Calendar, ChevronRight, Menu, X, Heart, Shield, 
-  Smartphone, Activity, Clock, Users, CheckCircle, Mail,
-  Facebook, Twitter, Instagram, Linkedin, MapPin, Phone
-} from 'lucide-react';
-
+import { Pill, Bell, Calendar, ChevronRight, Menu, X, Heart, Shield, Smartphone, Activity, Clock, Users, CheckCircle, Mail, Facebook, Twitter, Instagram, Linkedin, MapPin, Phone} from 'lucide-react';
 import Navbar from '../Navbar/Navbar'
-
 import "./LandingPage.css"
-
+import "tailwindcss";
 
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Data for additional sections
   const features = [
     {
       icon: <Bell className="text-blue-600" size={32} />,
@@ -45,19 +38,15 @@ const LandingPage = () => {
   ];
 
   return (
-     <div className="body shadow-2xl bg-gradient-to-br from-blue-600 to-cyan-500">
+     <div className="body shadow-2xl bg-linear-to-br from-blue-600 to-cyan-500">
 
          <Navbar/>
-
-
-
-        <div className="absolute top-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-white opacity-10 z-0"></div>
+        <div className="absolute -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 z-0"></div>
       
-      {/* Dynamic Background Elements */}
-      <div className="fixed top-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-white opacity-10 blur-3xl pointer-events-none"></div>
-      <div className="fixed bottom-[-100px] right-[-150px] w-[500px] h-[500px] bg-cyan-300 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="fixed -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 blur-3xl pointer-events-none"></div>
+      <div className="fixed -bottom-25 -right-37.5 w-125 h-125 bg-cyan-300 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* Navigation */}
+
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-4 z-50">
         <div className="container">
           <a className="navbar-brand d-flex align-items-center gap-2 fw-bold fs-3" href="#">
@@ -90,7 +79,7 @@ const LandingPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="container flex-grow-1 d-flex flex-column flex-lg-row align-items-center justify-content-center py-5 z-10">
+      <main className="container grow d-flex flex-column flex-lg-row align-items-center justify-content-center py-5 z-10">
         <div className="col-lg-6 text-center text-lg-start mb-5 mb-lg-0 pe-lg-5 animate-fade-in">
           <span className="badge bg-white bg-opacity-20 text-white rounded-pill px-3 py-2 mb-4 backdrop-blur-sm border border-white border-opacity-20">
             ✨ Your Smart Healthcare Assistant
@@ -186,7 +175,7 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="col-lg-7">
-               <div className="bg-gradient-to-tr from-blue-600 to-cyan-400 p-2 rounded-[3rem] shadow-2xl">
+               <div className="bg-linear-to-tr from-blue-600 to-cyan-400 p-2 rounded-[3rem] shadow-2xl">
                   <div className="bg-white p-2 rounded-[2.5rem]">
                     <div className="p-5 text-center">
                        <Activity size={80} className="text-blue-600 mb-4 animate-pulse mx-auto" />
@@ -237,7 +226,7 @@ const LandingPage = () => {
                 <li><a href="#" className="text-white text-decoration-none hover:opacity-100">About Us</a></li>
                 <li><a href="#" className="text-white text-decoration-none hover:opacity-100">Health Blog</a></li>
                 <li><a href="#" className="text-white text-decoration-none hover:opacity-100">Partners</a></li>
-                {/* <li><a href="#" className="text-white text-decoration-none hover:opacity-100">Careers</a></li> */}
+                <li><a href="#" className="text-white text-decoration-none hover:opacity-100">Careers</a></li>
               </ul>
             </div>
 
@@ -251,7 +240,7 @@ const LandingPage = () => {
               <div className="mt-4">
                 <div className="input-group">
                   <input type="text" className="form-control bg-white bg-opacity-10 border-0 text-white placeholder-blue-200" placeholder="Newsletter email" />
-                  <button className="btn btn-primary bg-white text-blue-900 border-0 fw-bold">Subscribe</button>
+                  <button className="btn btn-primary text-blue-900 border-0 fw-bold">Subscribe</button>
                 </div>
               </div>
             </div>

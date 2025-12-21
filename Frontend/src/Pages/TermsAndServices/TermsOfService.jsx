@@ -5,7 +5,6 @@ import "tailwindcss";
 const TermsOfServicePage = () => {
 
     return (
-        // Main container: Soft background, min-height, generous responsive padding
         <div className="min-h-screen bg-slate-50 p-6 md:p-12 font-sans antialiased">
             
             {/* Header Section: Centered, limited width, clean separator */}
