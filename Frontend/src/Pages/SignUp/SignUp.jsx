@@ -10,6 +10,8 @@ import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 import './SignUp.css'
 import "tailwindcss";
 
+import GoogleSignInButton from '../../PrimaryComponents/GoogleSignInButton/GoogleSignInButton.jsx';
+
 const SignUp = () => {
   const navigate = useNavigate();
 
