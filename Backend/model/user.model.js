@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     profilePicture:{type:String},
     verified:{type:Boolean, default:false}
 })
-const userModel = mongoose.model("MedReminder", userSchema);
+const userModel = mongoose.model("MedTrack", userSchema);
 
 
 module.exports = {userModel}

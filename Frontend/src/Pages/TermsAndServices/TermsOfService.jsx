@@ -7,11 +7,10 @@ const TermsOfServicePage = () => {
     return (
         <div className="min-h-screen bg-slate-50 p-6 md:p-12 font-sans antialiased">
             
-            {/* Header Section: Centered, limited width, clean separator */}
             <header className="max-w-5xl mx-auto py-8 text-center border-b-2 border-indigo-100 mb-10">
                 <div className="flex items-center justify-center space-x-3 text-emerald-600">
                     <Pill className="w-9 h-9 sm:w-10 sm:h-10 text-indigo-500" />
-                    {/* Responsive font size for the brand name */}
+
                     <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">MedTrack</h1>
                 </div>
                 
@@ -25,7 +24,6 @@ const TermsOfServicePage = () => {
                 </p>
             </header>
 
-            {/* Content Section: Wide, centered card with modern styling */}
             <div className="max-w-5xl mx-auto bg-white p-8 sm:p-12 rounded-3xl shadow-2xl shadow-indigo-100 border border-slate-100">
 
                 <section className="mb-8">
@@ -41,7 +39,6 @@ const TermsOfServicePage = () => {
                         MedTrack is a health tracking and reminder service. It is designed to assist you in managing your medication schedule and health metrics.
                     </p>
                     
-                    {/* Disclaimer Box - High Visibility Warning Theme (Amber) */}
                     <h4 className="text-xl font-semibold text-slate-700 mb-2">2.1. Medical Disclaimer</h4>
                     <div className="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-lg flex items-start space-x-3">
                         <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
@@ -96,7 +93,6 @@ const TermsOfServicePage = () => {
                 </section>
             </div>
             
-            {/* Footer */}
             <footer className="max-w-5xl mx-auto mt-12 py-6 text-center text-sm text-slate-400">
                 <p>For questions regarding these terms, please contact us at <a href="mailto:support@medtrackapp.com" className="text-indigo-400 hover:text-indigo-600 transition duration-150">support@medtrackapp.com</a></p>
                 <p className='mt-2'>&copy; 2025 MedTrack. All rights reserved.</p>
@@ -105,7 +101,6 @@ const TermsOfServicePage = () => {
     );
 };
 
-// Main component wrapper
 const TermsOfService = () => {
     return <TermsOfServicePage />;
 };

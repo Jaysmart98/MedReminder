@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Pill, Bell, Calendar, ChevronRight, Menu, X, Heart, Shield, Smartphone, Activity, Clock, Users, CheckCircle, Mail, Facebook, Twitter, Instagram, Linkedin, MapPin, Phone} from 'lucide-react';
 import Navbar from '../Navbar/Navbar'
 import "./LandingPage.css"
@@ -6,7 +6,7 @@ import "tailwindcss";
 
 
 const LandingPage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const features = [
     {
@@ -47,7 +47,7 @@ const LandingPage = () => {
       <div className="fixed -bottom-25 -right-37.5 w-125 h-125 bg-cyan-300 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
 
 
-      <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-4 z-50">
+      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-4 z-50">
         <div className="container">
           <a className="navbar-brand d-flex align-items-center gap-2 fw-bold fs-3" href="#">
             <div className="bg-white p-1 rounded-2 shadow-sm text-blue-600">
@@ -76,9 +76,9 @@ const LandingPage = () => {
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
-      {/* Hero Section */}
+
       <main className="container grow d-flex flex-column flex-lg-row align-items-center justify-content-center py-5 z-10">
         <div className="col-lg-6 text-center text-lg-start mb-5 mb-lg-0 pe-lg-5 animate-fade-in">
           <span className="badge bg-white bg-opacity-20 text-white rounded-pill px-3 py-2 mb-4 backdrop-blur-sm border border-white border-opacity-20">
@@ -132,7 +132,7 @@ const LandingPage = () => {
         </div>
       </main>
 
-      {/* Features Grid Section */}
+  
       <section id="features" className="py-5 bg-white bg-opacity-95 rounded-t-[4rem] mt-5">
         <div className="container py-5">
           <div className="text-center mb-5">
@@ -155,7 +155,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section id="how-it-works" className="py-5 bg-white">
         <div className="container py-5">
           <div className="row align-items-center g-5">
