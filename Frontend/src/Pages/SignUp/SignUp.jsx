@@ -12,12 +12,27 @@ import "tailwindcss";
 
 const SignUp = () => {
   const navigate = useNavigate();
+
    const [loading, setloading] = useState(false)
     
    const [userdetail, setUserdetail] = useState({
+           username: "",
             email: "",
-            password: ""
+            password: "",
+            // confirmPassword: ""
         })
+
+          fetch('/api/auth/google', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idToken: idToken }),
+          })
+          .then(res => res.json())
+          .then(data => {
+              console.log("Authentication successful:", data);
+          })
+          .catch(error => console.error("Auth error:", error));
+      };
 
         const handleInputChange = (e) => {
         console.log(e.target.value, e.target.name);
