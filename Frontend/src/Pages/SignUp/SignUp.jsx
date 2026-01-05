@@ -10,6 +10,7 @@ import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 import './SignUp.css'
 import "tailwindcss";
 
+
 import GoogleSignInButton from '../../PrimaryComponents/GoogleSignInButton/GoogleSignInButton.jsx';
 
 const SignUp = () => {
@@ -23,6 +24,9 @@ const SignUp = () => {
             password: "",
             // confirmPassword: ""
         })
+
+        const handleCredentialResponse = (response) => {
+        const idToken = response.credential;
 
           fetch('/api/auth/google', {
           method: 'POST',
@@ -116,7 +120,7 @@ const SignUp = () => {
         <Button loading={loading} text={"Create Account"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Register}/>
            <p className='d-flex justify-content-center'>  <a href="/termsofservice">Terms of Service</a> </p>
         <p id='createText'>Or create an account using</p>
-        <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
+        <Button onSignInSuccess={handleCredentialResponse} src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
       </div>
     </div>
     </div>

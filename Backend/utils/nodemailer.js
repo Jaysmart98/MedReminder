@@ -101,7 +101,8 @@ const MailVerification = async(email, username, link) => {
                             
                             <!-- Call-to-action Button -->
                             <div class="button-container" style="text-align: center; margin-top: 24px; margin-bottom: 24px;">
-                                <a href="${link}" class="button" style="display: inline-block; padding: 12px 24px; background-color: #3b82f6; color: #ffffff !important; text-decoration: none; border-radius: 6px; font-weight: bold;">Verify Email</a>
+                                <a href="\[Verify Link\]" class="button" style="display: inline-block; padding: 12px 24px; background-color: #059669; color: #ffffff !important; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px;">Verify My Email Address</a>
+                                // <a href="${link}" class="button" style="display: inline-block; padding: 12px 24px; background-color: #3b82f6; color: #ffffff !important; text-decoration: none; border-radius: 6px; font-weight: bold;">Verify Email</a>
                             </div>
 
                             <p>Thank you for signing up!</p>
@@ -110,7 +111,7 @@ const MailVerification = async(email, username, link) => {
                     <!-- Footer -->
                     <tr>
                         <td class="footer" style="background-color: #e5e7eb; padding: 24px; text-align: center; color: #6b7280; font-size: 12px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-                            <p style="margin: 0;">© 2025 Your Company Name. All rights reserved.</p>
+                            <p style="margin: 0;">© 2025 MedTrack. All rights reserved.</p>
                             <p style="margin: 8px 0 0;">
                                 <a href="https://www.example.com/unsubscribe" style="color: #6b7280; text-decoration: underline;">Unsubscribe</a>
                             </p>

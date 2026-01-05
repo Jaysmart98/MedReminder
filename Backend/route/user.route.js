@@ -8,7 +8,7 @@ const validateUser = require("../middleware/validator")
 
 
 userrouter.post("/signup", validateUser(validationSchema), userSignup)
-userrouter.post("/login", userLogin)
+userrouter.post("/signin", userLogin)
 userrouter.get("/verify", verifytoken)
 userrouter.get("/verify/email/:email", verifyemail)
 userrouter.patch("/upload/profile", Authtoken,UpdateProfile)
