@@ -110,7 +110,7 @@ const SignUp = () => {
       <div id='body' className='container-fluid w-100'>
       <div className='body2'>
         <h1 className='text-center'>Create an Account</h1>
-        <p className='text-center'>Already have an account?   <a href="/signin">Sign In</a> </p>
+        <p className='text-center'>Already have an account?   <a href="https://med-track-frontend.vercel.app/signup/login">Sign In</a> </p>
         <Input name={"username"} placeholder={"Enter Username"} type={"text"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Username"}/>
         <Input name={"email"} placeholder={"Enter Email Address"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Email"}/>
         <Input name={"password"} placeholder={"Enter Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Password'}/>

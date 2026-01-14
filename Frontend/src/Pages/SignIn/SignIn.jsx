@@ -92,7 +92,7 @@ const SignIn = () => {
           <h1 className='text-center'>Welcome Back!</h1>
           <p className='text-center'>Sign in to continue to MedTrack</p>
           <div>
-            <p className='text-center'>Don't have an account? <a href="/signup">Sign Up</a> </p>
+            <p className='text-center'>Don't have an account? <a href="https://med-track-frontend.vercel.app/signup">Sign Up</a> </p>
           </div>
 
             <div>
