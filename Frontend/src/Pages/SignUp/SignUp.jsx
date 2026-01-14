@@ -50,7 +50,7 @@ const SignUp = () => {
       const Register = () => {
       setloading(true)
       console.log(userdetail)
-          axios.post("https://pe-backend-liard.vercel.app/signup", userdetail)
+          axios.post("https://med-track-frontend.vercel.app/signup", userdetail)
         .then((res)=>{
             console.log(res);
              toast.success(res.data?.message),
