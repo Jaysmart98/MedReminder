@@ -104,7 +104,7 @@ const SignIn = () => {
              </div>
             </div>
 
-           <p className='d-flex justify-content-center'>  <a href="/termsofservice">Terms of Service</a> </p>
+           <p className='d-flex justify-content-center'>  <a href="https://med-track-frontend.vercel.app/termsofservice">Terms of Service</a> </p>
            <p id='createText'>Or create an account using</p>
            <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
         </div>

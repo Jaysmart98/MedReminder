@@ -110,14 +110,14 @@ const SignUp = () => {
       <div id='body' className='container-fluid w-100'>
       <div className='body2'>
         <h1 className='text-center'>Create an Account</h1>
-        <p className='text-center'>Already have an account?   <a href="https://med-track-frontend.vercel.app/signup/login">Sign In</a> </p>
+        <p className='text-center'>Already have an account?   <a href="https://med-track-frontend.vercel.app/login">Sign In</a> </p>
         <Input name={"username"} placeholder={"Enter Username"} type={"text"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Username"}/>
         <Input name={"email"} placeholder={"Enter Email Address"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Email"}/>
         <Input name={"password"} placeholder={"Enter Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Password'}/>
         <Input name={"password"} placeholder={"Confirm Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Confirm Password'}/> 
       
         <Button loading={loading} text={"Create Account"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Register}/>
-           <p className='d-flex justify-content-center'>  <a href="/termsofservice">Terms of Service</a> </p>
+           <p className='d-flex justify-content-center'>  <a href="https://med-track-frontend.vercel.app/termsofservice">Terms of Service</a> </p>
         <p id='createText'>Or create an account using</p>
         <Button onSignInSuccess={handleCredentialResponse} src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} id="GoogleSignInButton" text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
       </div>
