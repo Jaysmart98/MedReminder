@@ -34,12 +34,12 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState({ type: null, data: null }); // {type: 'editMed' | 'addMed' | 'editAppt' | 'addAppt', data: any}
   
   const [userData, setUserData] = useState({ 
-    firstName: 'Alex', 
-    lastName: 'Johnson',
-    username: 'ajohnson_health',
-    email: 'alex.j@example.com',
+    firstName: 'Joshua', 
+    lastName: 'Ogunbunmi',
+    username: 'Smart_health',
+    email: 'engineerogunbunmi@gmail.com',
     profilePic: null,
-    memberSince: '2025'
+    memberSince: '2026'
   });
   
   const [healthTip, setHealthTip] = useState({ text: 'Stay hydrated for better focus.', source: 'HealthAI' });
