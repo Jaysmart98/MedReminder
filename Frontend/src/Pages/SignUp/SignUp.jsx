@@ -47,7 +47,6 @@ const SignUp = () => {
         setUserdetail({...userdetail,[name]:value})
     }
 
-
       const Register = () => {
       setloading(true)
       console.log(userdetail)
