@@ -11,6 +11,7 @@ import './SignUp.css'
 import "tailwindcss";
 
 
+
 import GoogleSignInButton from '../../PrimaryComponents/GoogleSignInButton/GoogleSignInButton.jsx';
 
 const SignUp = () => {
@@ -22,7 +23,7 @@ const SignUp = () => {
            username: "",
             email: "",
             password: "",
-            // confirmPassword: ""
+            confirmPassword: ""
         })
 
         const handleCredentialResponse = (response) => {
@@ -47,23 +48,56 @@ const SignUp = () => {
         setUserdetail({...userdetail,[name]:value})
     }
 
-      const Register = () => {
-      setloading(true)
-      console.log(userdetail)
-          axios.post("http://localhost:8008/signup", userdetail)
-        .then((res)=>{
-            console.log(res);
-             toast.success(res.data?.message || "Registration successful"),
-              navigate("/signin");
-        }) .catch ((err) => {
-            console.log(err);
-            let errormessage = err.response.data?.message || "Server connection failed";
-            console.log(errormessage);
-            toast.error(errormessage)
-        }) .finally(()=>{
-          setloading(false)
-        })
+    //   const Register = () => {
+    //   if (userdetail.password !== userdetail.confirmPassword) {
+    //     return toast.error("Passwords do not match!");
+    // }
+    // setloading(true);
+    // const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+    
+    //   console.log(userdetail)
+    //       axios.post(`${apiUrl}/signup`, userdetail)
+    //     .then((res)=>{
+    //         console.log(res);
+    //          toast.success(res.data?.message || "Registration successful"),
+    //           navigate("/signin");
+    //     }) .catch ((err) => {
+    //         console.log(err);
+    //         let errormessage = err.response.data?.message || "Server connection failed";
+    //         console.log(errormessage);
+    //         toast.error(errormessage)
+    //     }) .finally(()=>{
+    //       setloading(false)
+    //     })
+    // }
+
+
+    const Register = () => {
+    // 1. Client-side Validation
+    if (!userdetail.username || !userdetail.email || !userdetail.password) {
+        return toast.warn("All fields are required");
     }
+    
+    if (userdetail.password !== userdetail.confirmPassword) {
+        return toast.error("Passwords do not match");
+    }
+
+    setloading(true);
+    
+    // 2. Use Dynamic URL
+    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+
+    axios.post(`${baseUrl}/signup`, userdetail)
+        .then((res) => {
+            toast.success(res.data?.message || "Verify your email to continue");
+            navigate("/signin");
+        })
+        .catch((err) => {
+            const msg = err.response?.data?.message || "Connection failed";
+            toast.error(msg);
+        })
+        .finally(() => setloading(false));
+};
 
     const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },
@@ -111,11 +145,11 @@ const SignUp = () => {
       <div id='body' className='container-fluid w-100'>
       <div className='body2'>
         <h1 className='text-center'>Create an Account</h1>
-        <p className='text-center'>Already have an account?   <a href="https://med-track-frontend.vercel.app/login">Sign In</a> </p>
+        <p className='text-center'>Already have an account?   <Link to="/signin">Sign In</Link> </p>
         <Input name={"username"} placeholder={"Enter Username"} type={"text"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Username"}/>
         <Input name={"email"} placeholder={"Enter Email Address"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Email"}/>
         <Input name={"password"} placeholder={"Enter Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Password'}/>
-        <Input name={"password"} placeholder={"Confirm Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Confirm Password'}/> 
+        <Input name={"confirmPassword"} placeholder={"Confirm Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={'Confirm Password'}/> 
       
         <Button loading={loading} text={"Create Account"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Register}/>
            <p className='d-flex justify-content-center'>  <a href="https://med-track-frontend.vercel.app/termsofservice">Terms of Service</a> </p>

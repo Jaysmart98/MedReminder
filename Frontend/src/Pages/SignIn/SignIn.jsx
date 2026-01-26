@@ -28,21 +28,24 @@ const SignIn = () => {
 
 
   const Login = () => {
-    setloading(true)
-    axios.post("http://localhost:8008/signin", userdetail)
+    setloading(true);
+    
+    // Use the VITE_ prefix variable from your .env
+    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+
+    axios.post(`${baseUrl}/signin`, userdetail)
       .then((res) => {
-        console.log(res);
-        toast.success(res.data?.message);
-        localStorage.setItem("auth_token", res.data.token)
+        toast.success(res.data?.message || "Login Successful");
+        localStorage.setItem("auth_token", res.data.token);
         navigate("/dashboard");
       }).catch((err) => {
-        console.log(err);
-        let errormessage = err.response.data?.message
-        toast.error(errormessage)
+        // Optional Chaining (?.) prevents crashes if the server is unreachable
+        let errormessage = err.response?.data?.message || "Login failed. Check your connection.";
+        toast.error(errormessage);
       }).finally(() => {
-        setloading(false)
-      })
-  };
+        setloading(false);
+      });
+};
 
        const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },
@@ -92,19 +95,19 @@ const SignIn = () => {
           <h1 className='text-center'>Welcome Back!</h1>
           <p className='text-center'>Sign in to continue to MedTrack</p>
           <div>
-            <p className='text-center'>Don't have an account? <a href="https://med-track-frontend.vercel.app/signup">Sign Up</a> </p>
+            <p className='text-center'>Don't have an account? <Link to="/signup">Sign Up</Link> </p>
           </div>
 
             <div>
-              <Input name={"email"} placeholder={"Enter your Email"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} />
+              <Input name={"email"} placeholder={"Enter your Email"} type={"email"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Email"} />
               <Input name={"password"} placeholder={"Enter your Password"} type={"password"} style={"form-control w-100 mt-3"} onChange={handleInputChange} label={"Password"} />
               <Button loading={loading} text={"Login"} style={"btn btn-light bg-secondary mt-2 mb-2"} onClick={Login} /> <br />
                <div>
-               <p className='text-center'>Forgot your password?   <a href="/reset-password">Reset Password</a> </p>
+               <p className='text-center'>Forgot your password?   <Link to="/reset-password">Reset Password</Link> </p>
              </div>
             </div>
 
-           <p className='d-flex justify-content-center'>  <a href="https://med-track-frontend.vercel.app/termsofservice">Terms of Service</a> </p>
+           <p className='d-flex justify-content-center'>  <Link to="/termsofservice">Terms of Service</Link> </p>
            <p id='createText'>Or create an account using</p>
            <Button src={"https://res.cloudinary.com/dc4fx7sbe/image/upload/v1760658494/google_dmivpl.png"} text={" Continue with Google"} style={"btn btn-light bg-secondary mt-2 mb-2"}/>
         </div>

@@ -26,13 +26,29 @@ import {
   RefreshCcw,
   CheckCircle2
 } from 'lucide-react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+Sign Out
 const Dashboard = () => {
+
+const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState('overview');
   const [isLoading, setIsLoading] = useState(true);
   const [isActionLoading, setIsActionLoading] = useState(false);
   const [showModal, setShowModal] = useState({ type: null, data: null }); // {type: 'editMed' | 'addMed' | 'editAppt' | 'addAppt', data: any}
   
+  useEffect(() => {
+        const token = localStorage.getItem("auth_token");
+        
+        // If there is no token, kick them out to the login page
+        if (!token) {
+            toast.error("Please login to access the dashboard");
+            navigate("/signin");
+        }
+    }, [navigate]);
+
   const [userData, setUserData] = useState({ 
     firstName: 'Joshua', 
     lastName: 'Ogunbunmi',
@@ -173,6 +189,18 @@ const Dashboard = () => {
         setActiveTab('overview');
     }, 1000);
   };
+
+
+  const handleLogout = () => {
+    // Remove the token
+    localStorage.removeItem("auth_token");
+    
+    // Notify the user
+    toast.info("Logged out successfully");
+    
+    // Redirect to Sign In
+    navigate("/signin");
+};
 
   // --- UI COMPONENTS ---
 
@@ -566,7 +594,7 @@ const Dashboard = () => {
                 </div>
                 <Settings size={14} className="ml-auto text-slate-300 group-hover:rotate-90 transition-transform" />
             </button>
-            <button className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-500 px-4 transition-colors">
+            <button onClick={handleLogout} className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-500 px-4 transition-colors">
                 <LogOut size={14}/> Sign Out
             </button>
         </div>
