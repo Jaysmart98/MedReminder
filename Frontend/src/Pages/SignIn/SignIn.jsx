@@ -29,7 +29,7 @@ const SignIn = () => {
 
   const Login = () => {
     setloading(true)
-    axios.post("http://localhost:8008/login", userdetail)
+    axios.post("http://localhost:8008/signin", userdetail)
       .then((res) => {
         console.log(res);
         toast.success(res.data?.message);
