@@ -4,6 +4,8 @@ import SignIn from './Pages/SignIn/SignIn.jsx'
 import Dashboard from './Pages/Dashboard/Dashboard.jsx'
 import LandingPage from './Pages/LandingPage/LandingPage.jsx'
 import TermsOfService from './Pages/TermsAndServices/TermsOfService.jsx'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
