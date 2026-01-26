@@ -50,14 +50,15 @@ const SignUp = () => {
       const Register = () => {
       setloading(true)
       console.log(userdetail)
-          axios.post("http://localhost:8008/signup", userdetail)
+          axios.post("https://med-track-frontend.vercel.app/signup", userdetail)
         .then((res)=>{
             console.log(res);
-             toast.success(res.data?.message),
+             toast.success(res.data?.message || "Registration successful"),
               navigate("/signin");
         }) .catch ((err) => {
             console.log(err);
-            let errormessage = err.response.data?.message || "An error occurred"
+            let errormessage = err.response.data?.message || "Server connection failed";
+            console.log(errormessage);
             toast.error(errormessage)
         }) .finally(()=>{
           setloading(false)
