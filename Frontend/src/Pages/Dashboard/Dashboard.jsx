@@ -26,10 +26,9 @@ import {
   RefreshCcw,
   CheckCircle2
 } from 'lucide-react';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-Sign Out
+import { toast } from 'react-toastify';
 const Dashboard = () => {
 
 const navigate = useNavigate();
@@ -562,7 +561,8 @@ const navigate = useNavigate();
           {[
             { id: 'overview', icon: Activity, label: 'Dashboard' },
             { id: 'meds', icon: Pill, label: 'Cabinet' },
-            { id: 'appointments', icon: Calendar, label: 'Visits' }
+            { id: 'appointments', icon: Calendar, label: 'Visits' },
+            { id: 'profile', icon: User, label: 'Profile' },
           ].map((item) => (
             <button
               key={item.id}
@@ -579,6 +579,14 @@ const navigate = useNavigate();
             </button>
           ))}
         </nav>
+
+        <button 
+  onClick={handleLogout}
+  className="w-full flex items-center space-x-4 px-5 py-4 rounded-2xl text-red-500 font-bold hover:bg-red-50 transition-all mt-auto"
+>
+  <LogOut size={20} />
+  <span>Logout</span>
+</button>
 
         <div className="mt-auto space-y-6">
             <button 
