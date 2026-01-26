@@ -29,7 +29,7 @@ const SignIn = () => {
 
   const Login = () => {
     setloading(true)
-    axios.post("http://localhost:8008/signin", userdetail)
+    axios.post("https://med-track-frontend.vercel.app/signup/login", userdetail)
       .then((res) => {
         console.log(res);
         toast.success(res.data?.message);
