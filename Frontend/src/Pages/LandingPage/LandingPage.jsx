@@ -189,7 +189,116 @@ const LandingPage = () => {
       </section>
 
       {/* Standardized Footer */}
-      <footer id="contact" className="bg-blue-900 text-white pt-5 pb-4 mt-auto">
+       <footer id="contact" className="bg-blue-900 text-white pt-12 pb-6 mt-auto">
+      <div className="container px-4 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          
+          {/* Brand Section */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex items-center gap-2 font-bold text-3xl mb-4">
+              <div className="bg-white p-2 rounded-xl text-blue-600">
+                <Pill size={24} />
+              </div>
+              <span>MedTrack</span>
+            </div>
+            <p className="text-blue-100 opacity-75 mb-6 max-w-sm">
+              Your reliable companion for medication management and appointment tracking.
+            </p>
+            <div className="flex gap-4 justify-center md:justify-start">
+              {[
+                { icon: <Facebook size={18} />, href: "https://www.facebook.com/share/1aizWy3wTW/?mibextid=wwXIfr" },
+                { icon: <Twitter size={18} />, href: "https://x.com/jaysmart98" },
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/king__jhay111" }
+              ].map((social, idx) => (
+                <a 
+                  key={idx}
+                  href={social.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center text-white hover:bg-white hover:text-blue-900 transition-all duration-300 transform hover:scale-110"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Links Section 1 - Product */}
+          <div className="text-center md:text-left grid grid-cols-2 md:grid-cols-1 gap-4">
+            <div>
+              <h5 className="font-bold text-lg mb-4 text-white">Product</h5>
+              <ul className="space-y-3 opacity-75 text-sm list-none p-0">
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Features</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Pricing</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Mobile App</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Security</a></li>
+              </ul>
+            </div>
+            
+            {/* Links Section 2 - Company (Nested for mobile side-by-side) */}
+            <div className="md:mt-6">
+              <h5 className="font-bold text-lg mb-4 text-white">Company</h5>
+              <ul className="space-y-3 opacity-75 text-sm list-none p-0">
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">About Us</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Health Blog</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Partners</a></li>
+                <li><a href="#" className="hover:text-white hover:opacity-100 transition-opacity no-underline text-blue-100">Careers</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div className="text-center md:text-left lg:col-span-2">
+            <h5 className="font-bold text-lg mb-4 text-white">Contact & Support</h5>
+            <div className="space-y-4 opacity-75 text-sm mb-6">
+              <div className="flex items-start md:items-center justify-center md:justify-start gap-3">
+                <MapPin size={18} className="shrink-0 mt-1 md:mt-0" />
+                <span>SQI College of ICT, Heritage Mall, Dugbe, Ibadan</span>
+              </div>
+              <div className="flex items-center justify-center md:justify-start gap-3">
+                <Phone size={18} className="shrink-0" />
+                <a href="tel:+2347044032713" className="text-white no-underline">+234 704 403 2713</a>
+              </div>
+              <div className="flex items-center justify-center md:justify-start gap-3">
+                <Mail size={18} className="shrink-0" />
+                <a href="mailto:engineerogunbunmi@gmail.com" className="text-white no-underline">engineerogunbunmi@gmail.com</a>
+              </div>
+            </div>
+            
+            {/* Newsletter */}
+            <div className="max-w-md mx-auto md:mx-0">
+              <label className="block text-xs font-semibold uppercase tracking-wider mb-2 opacity-50">Stay Updated</label>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input 
+                  type="email" 
+                  className="flex-grow bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-2 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm" 
+                  placeholder="Enter your email" 
+                />
+                <button className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-2 rounded-lg font-bold transition-colors text-sm whitespace-nowrap">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Bar */}
+        <div className="border-top border-white border-opacity-10 pt-8 mt-8 text-center">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
+            <p className="mb-0">
+              © {new Date().getFullYear()} MedTrack. Built with care for your health.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-white no-underline hover:opacity-100">Privacy Policy</a>
+              <span className="opacity-30">|</span>
+              <a href="/termsofservice" className="text-white no-underline hover:opacity-100">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+      {/* <footer id="contact" className="bg-blue-900 text-white pt-5 pb-4 mt-auto">
         <div className="container">
           <div className="row g-4 mb-5">
             <div className="col-lg-4 col-md-6">
@@ -255,9 +364,15 @@ const LandingPage = () => {
             </p>
           </div>
         </div>
-      </footer>
+      </footer> */}
 
       <style>{`
+      
+       .container { max-width: 1200px; }
+        @media (max-width: 768px) {
+          .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
