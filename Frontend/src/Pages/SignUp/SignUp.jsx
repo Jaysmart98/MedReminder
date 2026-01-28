@@ -72,32 +72,63 @@ const SignUp = () => {
     // }
 
 
-    const Register = () => {
-    // 1. Client-side Validation
-    if (!userdetail.username || !userdetail.email || !userdetail.password) {
-        return toast.warn("All fields are required");
-    }
+//     const Register = () => {
+//     // 1. Client-side Validation
+//     if (!userdetail.username || !userdetail.email || !userdetail.password) {
+//         return toast.warn("All fields are required");
+//     }
     
-    if (userdetail.password !== userdetail.confirmPassword) {
-        return toast.error("Passwords do not match");
-    }
+//     if (userdetail.password !== userdetail.confirmPassword) {
+//         return toast.error("Passwords do not match");
+//     }
 
-    setloading(true);
+//     setloading(true);
     
-    // 2. Use Dynamic URL
-    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+//     // 2. Use Dynamic URL
+//     const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
 
-    axios.post(`${baseUrl}/signup`, userdetail)
-        .then((res) => {
-            toast.success(res.data?.message || "Verify your email to continue");
-            navigate("/signin");
-        })
-        .catch((err) => {
-            const msg = err.response?.data?.message || "Connection failed";
-            toast.error(msg);
-        })
-        .finally(() => setloading(false));
+//     axios.post(`${baseUrl}/signup`, userdetail)
+//         .then((res) => {
+//             toast.success(res.data?.message || "Verify your email to continue");
+//             navigate("/signin");
+//         })
+//         .catch((err) => {
+//             const msg = err.response?.data?.message || "Connection failed";
+//             toast.error(msg);
+//         })
+//         .finally(() => setloading(false));
+// };
+
+
+const Register = async () => {
+  if (!userdetail.username || !userdetail.email || !userdetail.password) {
+    return toast.warn("All fields are required");
+  }
+
+  if (userdetail.password !== userdetail.confirmPassword) {
+    return toast.error("Passwords do not match");
+  }
+
+  setloading(true);
+  const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+
+  try {
+    const res = await axios.post(`${baseUrl}/signup`, {
+      username: userdetail.username,
+      email: userdetail.email,
+      password: userdetail.password
+    });
+
+    toast.success(res.data?.message || "Verify your email to continue");
+    navigate("/signin");
+  } catch (err) {
+    const msg = err.response?.data?.message || "Server connection failed";
+    toast.error(msg);
+  } finally {
+    setloading(false);
+  }
 };
+
 
     const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },

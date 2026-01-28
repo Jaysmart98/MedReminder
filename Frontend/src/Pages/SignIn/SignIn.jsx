@@ -27,27 +27,49 @@ const SignIn = () => {
   }
 
 
-  const Login = () => {
-    setloading(true);
+//   const Login = () => {
+//     setloading(true);
     
-    // Use the VITE_ prefix variable from your .env
-    const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+//     // Use the VITE_ prefix variable from your .env
+//     const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
 
-    axios.post(`${baseUrl}/signin`, userdetail)
-      .then((res) => {
+//     axios.post(`${baseUrl}/signin`, userdetail)
+//       .then((res) => {
+//         toast.success(res.data?.message || "Login Successful");
+//         localStorage.setItem("auth_token", res.data.token);
+//         navigate("/dashboard");
+//       }).catch((err) => {
+//         // Optional Chaining (?.) prevents crashes if the server is unreachable
+//         let errormessage = err.response?.data?.message || "Login failed. Check your connection.";
+//         toast.error(errormessage);
+//       }).finally(() => {
+//         setloading(false);
+//       });
+// };
+
+    const Login = async () => {
+      setloading(true);
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
+
+      try {
+        const res = await axios.post(`${baseUrl}/signin`, {
+          email: userdetail.email.trim(),
+          password: userdetail.password.trim()
+        });
+
         toast.success(res.data?.message || "Login Successful");
         localStorage.setItem("auth_token", res.data.token);
         navigate("/dashboard");
-      }).catch((err) => {
-        // Optional Chaining (?.) prevents crashes if the server is unreachable
-        let errormessage = err.response?.data?.message || "Login failed. Check your connection.";
-        toast.error(errormessage);
-      }).finally(() => {
-        setloading(false);
-      });
-};
 
-       const coreFeatures = [
+      } catch (err) {
+        const msg = err.response?.data?.message || "Login failed. Check your connection.";
+        toast.error(msg);
+      } finally {
+        setloading(false);
+      }
+    };
+
+    const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },
     { icon: HeartPulse, text: "Health Metrics (BP, Sugar, Weight)" },
     { icon: Users, text: "Family Member Profiles" },
@@ -57,7 +79,7 @@ const SignIn = () => {
 
   return (
     <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter ">
-     
+      
       <div className='landing-page d-flex justify-content-center align-items-center vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white selection:bg-cyan-500/30'>
     
       <div className="absolute -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 z-0"></div>
