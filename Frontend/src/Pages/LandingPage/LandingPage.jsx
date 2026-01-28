@@ -203,9 +203,9 @@ const LandingPage = () => {
                 Your reliable companion for medication management and appointment tracking.
               </p>
               <div className="d-flex gap-3">
-                <a href="#" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Facebook size={18} /></a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Twitter size={18} /></a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Instagram size={18} /></a>
+                <a href="https://www.facebook.com/share/1aizWy3wTW/?mibextid=wwXIfr" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Facebook size={18} /></a>
+                <a href="https://x.com/jaysmart98" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Twitter size={18} /></a>
+                <a href="https://www.instagram.com/king__jhay111" className="w-10 h-10 rounded-full bg-white bg-opacity-10 d-flex align-items-center justify-content-center text-white hover:bg-white hover:text-blue-900 transition-all"><Instagram size={18} /></a>
               </div>
             </div>
             
