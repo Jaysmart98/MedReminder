@@ -56,9 +56,9 @@ const SignIn = () => {
 ];
 
   return (
-    <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter">
+    <div id='SignUpPage' className="min-h-screen w-full flex flex-col lg:flex-row font-inter ">
      
-      <div className='landing-page d-flex justify-content-center align-items-center vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center text-white p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-linear-to-br from-blue-600 to-cyan-500'>
+      <div className='landing-page d-flex justify-content-center align-items-center vh-100 relative w-full lg:w-2/5 flex flex-col justify-center items-center text-center p-8 overflow-hidden rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl shadow-2xl bg-linear-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white selection:bg-cyan-500/30'>
     
       <div className="absolute -top-25 -left-37.5 w-100 h-100 rounded-full bg-white opacity-10 z-0"></div>
       <div className="absolute -bottom-12.5 -right-25 w-62.5 h-62.5 rounded-full bg-white opacity-15 z-0"></div>

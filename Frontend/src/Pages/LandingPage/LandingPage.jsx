@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Pill, Bell, Calendar, ChevronRight, Menu, X, Heart, Shield, 
   Smartphone, Activity, Clock, Users, CheckCircle, Mail, 
-  Facebook, Twitter, Instagram, Linkedin, MapPin, Phone,
+  Facebook, Twitter, Instagram, MapPin, Phone,
   Star, Quote, Send 
 } from 'lucide-react';
 
@@ -65,10 +65,17 @@ const LandingPage = () => {
   ];
 
   const testimonials = [
-    { name: "Sarah Johnson", role: "Chronic Patient", text: "MedTrack changed my life. I used to forget my blood pressure meds constantly, but now I'm 100% consistent.", stars: 5 },
-    { name: "Dr. James Wilson", role: "Cardiologist", text: "I recommend this to all my patients. The reporting feature makes our consultations so much more productive.", stars: 5 },
-    { name: "Michael Chen", role: "Family Caregiver", text: "Managing my elderly father's 8 different pills was a nightmare until we found this app. Truly a lifesaver.", stars: 5 }
+    { name: "Joshua Kayode", role: "Chronic Patient", text: "MedTrack changed my life. I used to forget my blood pressure meds constantly, but now I'm 100% consistent.", stars: 5 },
+    { name: "Dr. Adekunle Ogunbunmi", role: "Cardiologist", text: "I recommend this to all my patients. The reporting feature makes our consultations so much more productive.", stars: 5 },
+    { name: "Engr. Grace Adigun", role: "Family Caregiver", text: "Managing my elderly father's 8 different pills was a nightmare until we found this app. Truly a lifesaver.", stars: 5 }
   ];
+
+  const socialLinks = {
+    LinkedIn: "https://www.linkedin.com/in/joshua-ogunbunmi-63123a228",
+    Twitter: "https://x.com/jaysmart98",
+    Instagram: "https://www.instagram.com/king__jhay111",
+    Mail: "mailto:engineerogunbunmi@gmail.com"
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white selection:bg-cyan-500/30 overflow-x-hidden">
@@ -90,11 +97,11 @@ const LandingPage = () => {
             A comprehensive solution for managing medications, appointments, and vitals in one secure place.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="https://med-track-frontend.vercel.app/signup" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ">
+            <a href="https://med-track-frontend.vercel.app/signup" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 text-decoration-none">
               Get Started Free <ChevronRight size={20} />
             </a>
-            <a href="https://med-track-frontend.vercel.app/demo" className="border-5 border-slate-700 hover:border-slate-500 px-8 py-4 rounded-full font-bold backdrop-blur-sm transition-all hover:bg-white/5 text-slate-200">
+            <a href="https://med-track-frontend.vercel.app/demo" className="border-5 border-slate-700 hover:border-slate-500 px-8 py-4 rounded-full font-bold backdrop-blur-sm transition-all hover:bg-white/5 text-slate-200 text-decoration-none flex items-center justify-center gap-2 hover:scale-105 active:scale-95">
               Watch Demo
             </a>
           </div>
@@ -280,16 +287,45 @@ const LandingPage = () => {
           </div>
 
           <div className="flex flex-row justify-center items-center gap-6 mb-16">
-            {[<Facebook />, <Twitter />, <Instagram />].map((icon, idx) => (
               <a 
-                key={idx}
-                href="#" 
+                href={socialLinks.Facebook} 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all border border-white/20 hover:scale-110"
               >
-                {React.cloneElement(icon, { size: 22 })}
+                <Facebook size={24} className="text-white" />
               </a>
-            ))}
+
+              <a
+                href={socialLinks.Instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all border border-white/20 hover:scale-110"
+              >
+                <Instagram size={24} className="text-white" />
+              </a>
+
+              <a
+                href={socialLinks.Twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all border border-white/20 hover:scale-110"
+              >
+                <Twitter size={24} className="text-white" />
+              </a>
+
+              <a
+                href={socialLinks.Mail}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all border border-white/20 hover:scale-110"
+              >
+                <Mail size={24} className="text-white" />
+              </a>
+
           </div>
+
+           {/* className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all border border-white/20 hover:scale-110" */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-5xl mx-auto mb-16">
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -325,7 +361,7 @@ const LandingPage = () => {
                 </div>
                 <div className="flex flex-col items-center sm:items-start gap-2">
                   <Mail size={22} className="text-cyan-400 mb-1" />
-                  <a href="mailto:support@medtrack.com" className="hover:text-white">support@medtrack.com</a>
+                  <a href="mailto:engineerogunbunmi@gmail.com" className="hover:text-white">engineerogunbunmi@gmail.com</a>
                 </div>
               </div>
             </div>
