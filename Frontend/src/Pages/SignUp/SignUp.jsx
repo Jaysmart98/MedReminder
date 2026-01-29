@@ -162,7 +162,7 @@ const Register = async () => {
 
             </ul>
 
-           <button className='start mb-3' onClick={() => navigate('/signup')}> Start Your Free Trial</button>
+           <button className='start mb-3' onClick={() => navigate('/signup')}> Start Your Free Trial now!</button>
              <div>
                <p className='text-center'>Need help?   <a href="/help">Get Support</a> </p>
              </div>
