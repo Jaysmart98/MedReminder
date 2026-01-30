@@ -90,7 +90,7 @@ const EmailVerified = () => {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </button> <hr /> <hr /> <hr />
+          </button> <br /> <br />
           
           <p className="text-xs text-slate-400">
             Need help? <a href="#" className="text-blue-600 hover:underline font-medium">Contact MedTrack Support</a>
