@@ -50,7 +50,7 @@ const EmailVerified = () => {
               Account Verified
             </h1>
             <p className="text-slate-500 mb-8 leading-relaxed">
-              Welcome to the community! <span className="font-semibold text-slate-700">{email}</span> is now ready for use.
+              Welcome to the MedTrack! <span className="font-semibold text-slate-700">{email}</span> has been successfully verified.
             </p>
           </div>
         ) : (
@@ -86,11 +86,11 @@ const EmailVerified = () => {
             onClick={() => navigate("/signin")}
             className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-lg shadow-blue-200 transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
           >
-            {status === "success" ? "Get Started" : "Back to Sign In"}
+            {status === "success" ? "Login" : "Back to Sign In"}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </button>
+          </button> <hr /> <hr /> <hr />
           
           <p className="text-xs text-slate-400">
             Need help? <a href="#" className="text-blue-600 hover:underline font-medium">Contact MedTrack Support</a>
