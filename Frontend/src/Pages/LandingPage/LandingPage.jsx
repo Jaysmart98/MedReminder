@@ -24,7 +24,7 @@ const Navbar = () => {
           <a href="#how-it-works" className="text-white/80 hover:text-white transition-colors">How It Works</a>
           <a href="#testimonials" className="text-white/80 hover:text-white transition-colors">Success Stories</a>
 
-          <a href="https://med-track-frontend.vercel.app/signin" className="bg-white text-blue-600 px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform text-decoration-none">
+          <a href="/signin" className="bg-white text-blue-600 px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform text-decoration-none">
             Sign In
           </a>
 
@@ -98,10 +98,10 @@ const LandingPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start ">
-            <a href="https://med-track-frontend.vercel.app/signup" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 text-decoration-none">
+            <a href="/signup" className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 text-decoration-none">
               Get Started Free <ChevronRight size={20} />
             </a>
-            <a href="https://med-track-frontend.vercel.app/demo" className="border-5 border-slate-700 hover:border-slate-500 px-8 py-4 rounded-full font-bold backdrop-blur-sm transition-all hover:bg-white/5 text-slate-200 text-decoration-none flex items-center justify-center gap-2 hover:scale-105 active:scale-95">
+            <a href="/demo" className="border-5 border-slate-700 hover:border-slate-500 px-8 py-4 rounded-full font-bold backdrop-blur-sm transition-all hover:bg-white/5 text-slate-200 text-decoration-none flex items-center justify-center gap-2 hover:scale-105 active:scale-95">
               Watch Demo
             </a>
           </div>

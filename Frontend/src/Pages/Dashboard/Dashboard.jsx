@@ -41,7 +41,6 @@ const navigate = useNavigate();
   useEffect(() => {
         const token = localStorage.getItem("auth_token");
         
-        // If there is no token, kick them out to the login page
         if (!token) {
             toast.error("Please login to access the dashboard");
             navigate("/signin");
