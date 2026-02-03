@@ -26,27 +26,6 @@ const SignIn = () => {
     setUserdetail({ ...userdetail, [name]: value })
   }
 
-
-//   const Login = () => {
-//     setloading(true);
-    
-//     // Use the VITE_ prefix variable from your .env
-//     const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
-
-//     axios.post(`${baseUrl}/signin`, userdetail)
-//       .then((res) => {
-//         toast.success(res.data?.message || "Login Successful");
-//         localStorage.setItem("auth_token", res.data.token);
-//         navigate("/dashboard");
-//       }).catch((err) => {
-//         // Optional Chaining (?.) prevents crashes if the server is unreachable
-//         let errormessage = err.response?.data?.message || "Login failed. Check your connection.";
-//         toast.error(errormessage);
-//       }).finally(() => {
-//         setloading(false);
-//       });
-// };
-
     const Login = async () => {
       setloading(true);
       const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
