@@ -46,58 +46,7 @@ const SignUp = () => {
         const name = e.target.name;
         const value = e.target.value
         setUserdetail({...userdetail,[name]:value})
-    }
-
-    //   const Register = () => {
-    //   if (userdetail.password !== userdetail.confirmPassword) {
-    //     return toast.error("Passwords do not match!");
-    // }
-    // setloading(true);
-    // const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
-    
-    //   console.log(userdetail)
-    //       axios.post(`${apiUrl}/signup`, userdetail)
-    //     .then((res)=>{
-    //         console.log(res);
-    //          toast.success(res.data?.message || "Registration successful"),
-    //           navigate("/signin");
-    //     }) .catch ((err) => {
-    //         console.log(err);
-    //         let errormessage = err.response.data?.message || "Server connection failed";
-    //         console.log(errormessage);
-    //         toast.error(errormessage)
-    //     }) .finally(()=>{
-    //       setloading(false)
-    //     })
-    // }
-
-
-//     const Register = () => {
-//     // 1. Client-side Validation
-//     if (!userdetail.username || !userdetail.email || !userdetail.password) {
-//         return toast.warn("All fields are required");
-//     }
-    
-//     if (userdetail.password !== userdetail.confirmPassword) {
-//         return toast.error("Passwords do not match");
-//     }
-
-//     setloading(true);
-    
-//     // 2. Use Dynamic URL
-//     const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8008";
-
-//     axios.post(`${baseUrl}/signup`, userdetail)
-//         .then((res) => {
-//             toast.success(res.data?.message || "Verify your email to continue");
-//             navigate("/signin");
-//         })
-//         .catch((err) => {
-//             const msg = err.response?.data?.message || "Connection failed";
-//             toast.error(msg);
-//         })
-//         .finally(() => setloading(false));
-// };
+    };
 
 
 const Register = async () => {
