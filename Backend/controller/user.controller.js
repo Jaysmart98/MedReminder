@@ -109,7 +109,7 @@ const verifyemail = async (req, res) => {
 
     if (!user) {
       return res.redirect(
-        "https://med-track-frontend.vercel.app/email-verified?status=failed"
+        "https://medtrack-liard.vercel.app/email-verified?status=failed"
       );
     }
 
@@ -117,12 +117,12 @@ const verifyemail = async (req, res) => {
     await user.save();
 
     return res.redirect(
-      `https://med-track-frontend.vercel.app/email-verified?status=success&email=${user.email}`
+      `https://medtrack-liard.vercel.app/email-verified?status=success&email=${user.email}`
     );
 
   } catch (error) {
     return res.redirect(
-      "https://med-track-frontend.vercel.app/email-verified?status=failed"
+      "https://medtrack-liard.vercel.app/email-verified?status=failed"
     );
   }
 };
