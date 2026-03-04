@@ -26,27 +26,37 @@ const SignIn = () => {
     setUserdetail({ ...userdetail, [name]: value })
   }
 
-    const Login = async () => {
-      setloading(true);
-      const baseUrl = "https://medtrackbackend-mq3i.onrender.com" || "http://localhost:8008";
+    // 
+    
+      const Login = async () => {
+        if (!userdetail.email || !userdetail.password) {
+          return toast.error("Please fill in all fields");
+        }
 
-      try {
-        const res = await axios.post(`${baseUrl}/signin`, {
-          email: userdetail.email.trim(),
-          password: userdetail.password.trim()
-        });
+        setloading(true);
+        
+        const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-        toast.success(res.data?.message || "Login Successful");
-        localStorage.setItem("auth_token", res.data.token);
-        navigate("/dashboard");
+        try {
+             const res = await axios.post(`${baseUrl}/signin`, {
+                email: userdetail.email.trim(),
+                password: userdetail.password.trim()
+          }, {
+            withCredentials: true
+          });
 
-      } catch (err) {
-        const msg = err.response?.data?.message || "Login failed. Check your connection.";
-        toast.error(msg);
-      } finally {
-        setloading(false);
-      }
-    };
+          toast.success(res.data?.message || "Login Successful");
+          localStorage.setItem("auth_token", res.data.token);
+          navigate("/dashboard");
+
+        } catch (err) {
+          console.error("Login Error:", err);
+          const msg = err.response?.data?.message || "Login failed. Check your connection.";
+          toast.error(msg);
+        } finally {
+          setloading(false);
+        }
+      };
 
     const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },

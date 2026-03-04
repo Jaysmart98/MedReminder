@@ -4,7 +4,7 @@ import axios from 'axios';
 import {toast} from 'react-toastify'
 import Input from "../../PrimaryComponents/Input/Input.jsx"
 import Button from "../../PrimaryComponents/Button/Button.jsx"
-import { useNavigate, Router } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { Pill, HeartPulse, Users, Calendar, CheckCircle } from 'lucide-react';
 import './SignUp.css'
@@ -26,20 +26,20 @@ const SignUp = () => {
             confirmPassword: ""
         })
 
-        const handleCredentialResponse = (response) => {
-        const idToken = response.credential;
+      //   const handleCredentialResponse = (response) => {
+      //   const idToken = response.credential;
 
-          fetch('/api/auth/google', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ idToken: idToken }),
-          })
-          .then(res => res.json())
-          .then(data => {
-              console.log("Authentication successful:", data);
-          })
-          .catch(error => console.error("Auth error:", error));
-      };
+      //     fetch('/api/auth/google', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify({ idToken: idToken }),
+      //     })
+      //     .then(res => res.json())
+      //     .then(data => {
+      //         console.log("Authentication successful:", data);
+      //     })
+      //     .catch(error => console.error("Auth error:", error));
+      // };
 
         const handleInputChange = (e) => {
         console.log(e.target.value, e.target.name);
@@ -59,7 +59,7 @@ const Register = async () => {
   }
 
   setloading(true);
-  const baseUrl = "https://medtrackbackend-mq3i.onrender.com" || "http://localhost:8008";
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   try {
     const res = await axios.post(`${baseUrl}/signup`, {
@@ -78,6 +78,25 @@ const Register = async () => {
   }
 };
 
+
+
+const handleCredentialResponse = (response) => {
+  const idToken = response.credential;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL; // Use your variable
+
+  fetch(`${baseUrl}/api/auth/google`, { // Full URL
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ idToken: idToken }),
+  })
+  .then(res => res.json())
+  .then(data => {
+      console.log("Authentication successful:", data);
+      localStorage.setItem("auth_token", data.token);
+      navigate("/dashboard");
+  })
+  .catch(error => console.error("Auth error:", error));
+};
 
     const coreFeatures = [
     { icon: Pill, text: "Medication Schedule & Reminders" },

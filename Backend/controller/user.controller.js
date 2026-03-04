@@ -33,7 +33,7 @@ const userSignup = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    const link = `https://med-track-backend.vercel.app/verify/email/${token}`;
+    const link = `${process.env.BACKEND_URL}/verify/email/${token}`;
     await MailVerification(email, username, link);
 
     return res.status(201).json({
@@ -48,6 +48,7 @@ const userSignup = async (req, res) => {
     return res.status(500).json({ message: error.message, status: false });
   }
 };
+
 
 const userLogin = async (req, res) =>{
    try {
