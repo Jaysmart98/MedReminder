@@ -1,9 +1,8 @@
-const {userModel} = require("../model/user.model")
-const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
-const MailVerification = require("../utils/nodemailer")
-const cloudinary = require("../utils/cloudinary")
-
+const { userModel } = require("../model/user.model");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const MailVerification = require("../utils/nodemailer");
+const cloudinary = require("../utils/cloudinary");
 
 const userSignup = async (req, res) => {
   try {
@@ -28,12 +27,13 @@ const userSignup = async (req, res) => {
     });
 
     const token = jwt.sign(
-      { id: user._id },
+      { id: user._id, email: user.email }, 
       process.env.JWT_SECRETKEY,
       { expiresIn: "1d" }
     );
 
     const link = `${process.env.BACKEND_URL}/verify/email/${token}`;
+
     await MailVerification(email, username, link);
 
     return res.status(201).json({
@@ -49,108 +49,106 @@ const userSignup = async (req, res) => {
   }
 };
 
+const userLogin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: "All fields are mandatory", status: false });
+    }
 
-const userLogin = async (req, res) =>{
-   try {
-     const {email , password} = req.body
-     if (!email ||  !password) {
-       return res.status(400).json({message:"All fields are mandatory", status:false})
-     }
-
-    const existuser = await userModel.findOne({email})
-
+    const existuser = await userModel.findOne({ email });
     if (!existuser) {
-     return res.status(400).json({message:"Invalid  email or password.", status:false}) 
+      return res.status(400).json({ message: "Invalid email or password.", status: false });
     }
 
     const isPasswordMatch = await bcrypt.compare(password, existuser.password);
-
     if (!isPasswordMatch) {
       return res.status(400).json({ message: "Invalid email or password", status: false });
     }
-    if (!existuser.verified) {
-      return res.status(400).json({message:"email is not verified, check your email for verification email", status:false})
-    }
-      const token =  await jwt.sign({email:existuser.email,id:existuser._id}, process.env.JWT_SECRETKEY,{expiresIn:"1d"} )
-      return res.status(200).json({message:"Login successful", status:true, token})
-   } catch (error) {
-     return res.status(500).json({message:error.message, status:false})
-   }
-}
 
+    if (!existuser.verified) {
+      return res.status(400).json({ message: "Email is not verified, check your inbox", status: false });
+    }
+
+    const token = await jwt.sign(
+      { email: existuser.email, id: existuser._id }, 
+      process.env.JWT_SECRETKEY, 
+      { expiresIn: "1d" }
+    );
+
+    return res.status(200).json({ message: "Login successful", status: true, token });
+  } catch (error) {
+    return res.status(500).json({ message: error.message, status: false });
+  }
+};
 
 const verifytoken = async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
-
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({ message: "Unauthorized", status: false });
     }
 
     const token = authHeader.split(" ")[1];
-    jwt.verify(token, process.env.JWT_SECRETKEY);
+    const decoded = jwt.verify(token, process.env.JWT_SECRETKEY);
 
-    return res.status(200).json({ message: "Token verified", status: true });
-
+    return res.status(200).json({ message: "Token verified", status: true, user: decoded });
   } catch (error) {
     return res.status(401).json({ message: "Invalid or expired token", status: false });
   }
 };
 
-
-
 const verifyemail = async (req, res) => {
+  const frontendUrl = "https://medtrack-liard.vercel.app/email-verified";
+
   try {
     const { token } = req.params;
-
     const decoded = jwt.verify(token, process.env.JWT_SECRETKEY);
 
-    const user = await userModel.findById(decoded.id);
+    // Using the email we added to the token payload in userSignup
+    const user = await userModel.findOne({ email: decoded.email });
 
     if (!user) {
-      return res.redirect(
-        "https://medtrack-liard.vercel.app/email-verified?status=failed"
-      );
+      return res.redirect(`${frontendUrl}?status=failed`);
     }
 
-    user.verified = true;
-    await user.save();
+    if (!user.verified) {
+      user.verified = true;
+      await user.save();
+    }
 
-    return res.redirect(
-      `https://medtrack-liard.vercel.app/email-verified?status=success&email=${user.email}`
-    );
+    return res.redirect(`${frontendUrl}?status=success&email=${user.email}`);
 
   } catch (error) {
-    return res.redirect(
-      "https://medtrack-liard.vercel.app/email-verified?status=failed"
-    );
+    console.error("Verification Error:", error.message);
+    return res.redirect(`${frontendUrl}?status=failed`);
   }
 };
 
-
-const UpdateProfile =  async (req, res) => {
+const UpdateProfile = async (req, res) => {
   try {
-    console.log(req.user);
-    
-    const {image} = req.body 
+    const { image } = req.body;
     if (!image) {
-      return res.status(400).json({message:"Invalid image", status: false})
+      return res.status(400).json({ message: "Invalid image", status: false });
     }
-    const uploaded =  await cloudinary.uploader.upload(image)
-    console.log(uploaded.secure_url);
+
+    const uploaded = await cloudinary.uploader.upload(image, {
+        folder: "medtrack_profiles"
+    });
+
     if (uploaded) {
       const user = await userModel.findByIdAndUpdate(
-        req.user.id,
-        {$set:{profilePicture:uploaded.secure_url}},
-        {new:true}
-      )
-      return res.status(200).json({message:"profile image upload successful", status: true, user})
+        req.user.id, // Populated by auth middleware
+        { $set: { profilePicture: uploaded.secure_url } },
+        { new: true }
+      ).select("-password"); // Hide password from frontend
+
+      return res.status(200).json({ message: "Profile image upload successful", status: true, user });
     }
-    return res.status(403).json({message:"unable to upload image", status: false})
+    return res.status(403).json({ message: "Unable to upload image", status: false });
   } catch (error) {
-    return res.status(500).json({message:error.message, status: false})
+    return res.status(500).json({ message: error.message, status: false });
   }
-}
+};
 
-
-module.exports = {userSignup, userLogin, verifytoken, verifyemail, UpdateProfile}
+module.exports = { userSignup, userLogin, verifytoken, verifyemail, UpdateProfile };

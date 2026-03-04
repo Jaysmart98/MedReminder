@@ -1,10 +1,20 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 
+
 const EmailVerified = () => {
   const [params] = useSearchParams();
   const status = params.get("status");
   const email = params.get("email");
   const navigate = useNavigate();
+
+
+  if (!status) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-slate-500">Invalid access. Please check your email link.</p>
+    </div>
+  );
+}
 
 
   return (
